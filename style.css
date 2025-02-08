@@ -42,7 +42,7 @@ button {
     left: calc(50vw * Math.random());
 }
 body {
-    background-image: url('images/IMG_7138.heic'); /* Adjust path if needed */
+    background-image: url('images/IMG_7138.HEIC'); /* Adjust path if needed */
     background-size: cover; /* Covers entire screen */
     background-position: center;
     background-repeat: no-repeat;
