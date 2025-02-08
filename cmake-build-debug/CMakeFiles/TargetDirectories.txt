@@ -1,0 +1,3 @@
+/Users/kushagragupta/CLionProjects/askherout/cmake-build-debug/CMakeFiles/askherout.dir
+/Users/kushagragupta/CLionProjects/askherout/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kushagragupta/CLionProjects/askherout/cmake-build-debug/CMakeFiles/rebuild_cache.dir
