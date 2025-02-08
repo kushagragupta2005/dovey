@@ -41,3 +41,12 @@ button {
     top: calc(50vh * Math.random());
     left: calc(50vw * Math.random());
 }
+body {
+    background-image: url('images/IMG_7138.heic'); /* Adjust path if needed */
+    background-size: cover; /* Covers entire screen */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
