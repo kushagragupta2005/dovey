@@ -2,6 +2,12 @@ body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: #ffdde1;
+    background-image: url('IMG_7138.JPG'); /* Replace with actual filename */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 }
 
 .container {
@@ -41,12 +47,4 @@ button {
     top: calc(50vh * Math.random());
     left: calc(50vw * Math.random());
 }
-body {
-    background-image: url('IMG_7138.JPG'); /* Adjust path if needed */
-    background-size: cover; /* Covers entire screen */
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
+
