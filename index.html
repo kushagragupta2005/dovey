@@ -5,20 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
+
+    <!-- Background Music -->
     <audio id="backgroundMusic" autoplay loop>
-    <source src="Bruno Mars - Marry You.ogg" type="audio/ogg">
-    Your browser does not support the audio element.
+        <source src="Bruno Mars - Marry You.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
     </audio>
 
-<div class="container">
-    <h1>Hey, Beautiful ❤️</h1>
-    <p>I've been thinking... will you be my Valentine? 💘</p>
-    <button id="yesButton">Yes 💖</button>
-    <button id="noButton">No 😭</button>
-</div>
-<script src="script.js"></script>
+    <div class="container">
+        <h1>Hey, Beautiful ❤️</h1>
+        <p>I've been thinking... will you be my Valentine? 💘</p>
+        <button id="yesButton">Yes 💖</button>
+        <button id="noButton">No 😭</button>
+    </div>
+
+    <script>
+        // Save music time when clicking "Yes" and redirect
+        document.getElementById("yesButton").addEventListener("click", function() {
+            localStorage.setItem("musicTime", document.getElementById("backgroundMusic").currentTime);
+            window.location.href = "yes.html";
+        });
+
+        // Fun "No" Button Runs Away
+        document.getElementById("noButton").addEventListener("mouseover", function() {
+            this.style.position = "absolute";
+            this.style.top = Math.random() * window.innerHeight + "px";
+            this.style.left = Math.random() * window.innerWidth + "px";
+        });
+
+        // Resume music from saved time
+        window.addEventListener("load", function() {
+            let audio = document.getElementById("backgroundMusic");
+            let savedTime = localStorage.getItem("musicTime");
+            if (savedTime) {
+                audio.currentTime = savedTime;
+            }
+            audio.play();
+        });
+    </script>
+
 </body>
 </html>
