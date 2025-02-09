@@ -69,15 +69,20 @@
     // Start confetti on page load
     window.onload = function () {
         startConfetti();
-
-        // Resume music from index.html
-        let audio = document.getElementById("backgroundMusic");
-        let savedTime = localStorage.getItem("musicTime");
-        if (savedTime) {
-            audio.currentTime = savedTime;
-        }
-        audio.play();
-    };
+        window.onload = function () {
+            let audio = document.getElementById("bgMusic");
+    
+            // Try autoplay (may fail due to browser restrictions)
+            audio.play().catch(error => {
+                console.log("Autoplay blocked. Waiting for user interaction.");
+    
+                // Wait for user interaction before playing
+                document.body.addEventListener("click", function playMusic() {
+                    audio.play().catch(err => console.log("Still blocked:", err));
+                    document.body.removeEventListener("click", playMusic);
+                });
+            });
+        };
 </script>
 
 </body>
