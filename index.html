@@ -20,6 +20,28 @@
     <source src="Bazzi_Beautiful.mp3" type="audio/mp3">
     Your browser does not support the audio element.
 </audio>
+    <audio id="bgMusic" loop>
+    <source src="Bazzi - Beautiful feat. Camila.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    window.onload = function () {
+        let audio = document.getElementById("bgMusic");
+
+        // Try autoplay (may fail due to browser restrictions)
+        audio.play().catch(error => {
+            console.log("Autoplay blocked. Waiting for user interaction.");
+
+            // Wait for user interaction before playing
+            document.body.addEventListener("click", function playMusic() {
+                audio.play().catch(err => console.log("Still blocked:", err));
+                document.body.removeEventListener("click", playMusic);
+            });
+        });
+    };
+</script>
+
 
 <script src="script.js"></script>
 
