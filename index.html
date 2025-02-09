@@ -43,9 +43,9 @@
 <!-- Main Content (Hidden Under Letter) -->
 <div class="container">
     <h1>Hey, Beautiful ❤️</h1>
-    <p>I've been thinking... will you be my valentine Dovey? 💘</p>
+    <p>I've been thinking... will you be my Valentine? 💘</p>
     <button id="yesButton">Yes 💖</button>
-    <button id="noButton">No 😭</button>
+    <button id="noButton">No 😢</button>
 </div>
 
 <!-- Background Music (No Changes) -->
@@ -67,30 +67,14 @@
         letter.classList.add("hidden");
 
         // Start Confetti
-    document.getElementById("letter").addEventListener("click", function () {
-        let letter = document.getElementById("letter");
-        let audio = document.getElementById("bgMusic");
-
-        // Drop the Letter
-        letter.classList.add("hidden");
-
-        // Start Confetti with Bigger Particles & Top Shower Effect
         confetti({
             particleCount: 200,
-            spread: 90,
-            startVelocity: 40,
-            gravity: 0.3,
-            scalar: 2,  // Makes the particles larger
+            spread: 100,
+            startVelocity: 50,
+            gravity: 0.2,
+            scalar: 2,  // Makes the confetti larger
             origin: { x: 0.5, y: 0 } // Start from the top center
         });
-
-        // Play Music
-        audio.play().catch(err => {
-            console.log("Autoplay blocked. Waiting for user interaction.");
-        });
-    });
-</script>
-
 
         // Play Music
         audio.play().catch(err => {
