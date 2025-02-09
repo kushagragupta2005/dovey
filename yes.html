@@ -5,59 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Love ❤️</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff5f8;
+            text-align: center;
+        }
+
+        .envelope {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            background: #ff4d6d;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s;
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            width: 0;
+            height: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 50px solid #ff4d6d;
+            transition: transform 0.5s;
+        }
+
+        .letter {
+            position: absolute;
+            top: -40px;
+            width: 120px;
+            height: 80px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4d6d;
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Background Music Continues -->
     <audio id="backgroundMusic" autoplay loop>
         <source src="Bruno Mars - Marry You.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
     </audio>
 
-    <div class="container">
-        <h1>My Love, My Tisha ❤️</h1>
-        <p>
-            Never ever had I thought I would have someone to love me for who I am.<br>
-            Never ever had I thought I would have someone to understand me for who I am.<br><br>
-
-            The past year was the best year I had just because of you.<br>
-            The brightest star or even the moon itself can't compare if it's you.<br><br>
-
-            People say it's God who sees you and believes in you,<br>
-            But all I know is that my God herself is in you.<br><br>
-
-            It wouldn't be right to just praise you all the way and not mention any of your mistakes.<br>
-            I really would have done so if I had found any, but I only saw your beautiful face,<br>
-            That prettiest smile, those enchanting eyes—oh no, I couldn't escape.<br><br>
-
-            Never ever had I thought I would love someone this much for who I am.<br>
-            Never ever had I thought I would be in total sync with someone for who I am.<br><br>
-
-            Well, it's not about who you were or who you will be in the future now.<br>
-            All that matters is what you have become, with the person alongside, by your side, to the person you vowed.<br><br>
-
-            That person is you, my Tisha. That someone is none other than my one and only Tisha.<br><br>
-
-            Happy Valentine's Day to my love, my dovey, my jaanu, my everything—for being not just a part of my life, but my whole life. 
-        </p>
-        <p style="text-align: center; font-size: 2rem; margin-top: 15px;">
-            ♥️♥️♥️
-        </p>
+    <div class="envelope" onclick="openEnvelope()">
+        <div class="letter">Open Me ❤️</div>
     </div>
 
-    <!-- Confetti Script -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+    <div class="message" id="message">
+        <h1>My Love, My Tisha ❤️</h1>
+        <p>Never ever had I thought I would have someone to love me for who I am...</p>
+        <p>Happy Valentine's Day to my love, my dovey, my jaanu, my everything—for being not just a part of my life, but my whole life. ♥️</p>
+    </div>
+
     <script>
+        function openEnvelope() {
+            document.querySelector('.letter').style.opacity = '1';
+            document.querySelector('.letter').style.transform = 'translateY(-80px)';
+            setTimeout(() => {
+                document.querySelector('.message').style.display = 'block';
+                startConfetti();
+            }, 1000);
+        }
+
         function startConfetti() {
-            var duration = 6 * 1000; // Confetti for 5 seconds
+            var duration = 6 * 1000;
             var end = Date.now() + duration;
 
             (function frame() {
                 confetti({
-                    particleCount: 10,
-                    spread: 80,
-                    origin: { y: 0.2 },
-                    colors: ["#ff4d6d", "#ff7eb3", "#ffc3a0", "#ffdd67", "#ff99cc", "#ffcc99"]
+                    particleCount: 100,
+                    spread: 160,
+                    origin: { y: 0.2 }
                 });
 
                 if (Date.now() < end) {
@@ -65,20 +113,6 @@
                 }
             })();
         }
-
-        // Start confetti on page load
-        window.onload = function () {
-            startConfetti();
-
-            // Resume music from index.html
-            let audio = document.getElementById("backgroundMusic");
-            let savedTime = localStorage.getItem("musicTime");
-            if (savedTime) {
-                audio.currentTime = savedTime;
-            }
-            audio.play();
-        };
     </script>
-
 </body>
 </html>
