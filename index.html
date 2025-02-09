@@ -48,13 +48,9 @@
     <button id="noButton">No 😢</button>
 </div>
 
-<!-- Background Music (No Changes) -->
-<audio id="bgMusic" autoplay loop>
-    <source src="Bazzi_Beautiful.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
+<!-- Background Music (Fixed Issue) -->
 <audio id="bgMusic" loop>
-    <source src="Bazzi - Beautiful feat. Camila.mp3" type="audio/mp3">
+    <source src="Bazzi_Beautiful.mp3" type="audio/mp3">
     Your browser does not support the audio element.
 </audio>
 
@@ -66,15 +62,17 @@
         // Drop the Letter
         letter.classList.add("hidden");
 
-        // Start Confetti
-        confetti({
-            particleCount: 200,
-            spread: 100,
-            startVelocity: 50,
-            gravity: 0.2,
-            scalar: 2,  // Makes the confetti larger
-            origin: { x: 0.5, y: 0 } // Start from the top center
-        });
+        // Ensure Confetti Runs Properly
+        setTimeout(() => {
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                startVelocity: 50,
+                gravity: 0.2,
+                scalar: 2,  // Makes the confetti larger
+                origin: { x: 0.5, y: 0 } // Start from the top center
+            });
+        }, 300); // Small delay to ensure visibility
 
         // Play Music
         audio.play().catch(err => {
