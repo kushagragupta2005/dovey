@@ -17,11 +17,17 @@
     <div class="container">
         <h1>Hey, Beautiful ❤️</h1>
         <p>I've been thinking... will you be my Valentine? 💘</p>
+        <button id="yesButton">Yes 💖</button>
+        <button id="noButton">No 😭</button>
     </div>
 
+    <!-- Mute/Unmute Button -->
+    <button id="muteButton" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">🔊 Mute</button>
+
     <script>
-        // Resume music progress when navigating between pages
+        // Resume music progress if user navigates between pages
         let audio = document.getElementById("backgroundMusic");
+        let muteButton = document.getElementById("muteButton");
 
         window.onload = function () {
             let savedTime = localStorage.getItem("musicTime");
@@ -35,6 +41,27 @@
         window.onbeforeunload = function () {
             localStorage.setItem("musicTime", audio.currentTime);
         };
+
+        // Mute/Unmute Button
+        muteButton.addEventListener("click", function () {
+            if (audio.muted) {
+                audio.muted = false;
+                muteButton.textContent = "🔊 Mute";
+            } else {
+                audio.muted = true;
+                muteButton.textContent = "🔇 Unmute";
+            }
+        });
+
+        // Redirect to yes.html when clicking "Yes"
+        document.getElementById("yesButton").addEventListener("click", function () {
+            window.location.href = "yes.html";
+        });
+
+        // Redirect to a fun "no" page (optional)
+        document.getElementById("noButton").addEventListener("click", function () {
+            alert("No? 😭 But why?! I still love you! 💔");
+        });
     </script>
 
 </body>
