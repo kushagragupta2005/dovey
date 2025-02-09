@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
-<body>
+<body onload="startConfetti()">
+    
+    <!-- Background Music -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="Bruno Mars - Marry You.ogg" type="audio/ogg">
+        Your browser does not support the audio tag.
+    </audio>
 
     <div class="container">
         <h1>My Love, My Tisha ❤️</h1>
@@ -40,17 +46,19 @@
         </p>
     </div>
 
+    <button id="muteButton" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">🔊 Mute</button>
+
     <script>
         function startConfetti() {
-            var duration = 5000; // Confetti lasts for 5 seconds
+            var duration = 8000; // Confetti lasts for 5 seconds
             var end = Date.now() + duration;
 
             (function frame() {
                 confetti({
-                    particleCount: 7,  // Increased particles for better effect
-                    spread: 90,  // More spread out
-                    startVelocity: 40,  // Drops from higher up
-                    origin: { y: 0.1 },  // Starts from the top
+                    particleCount: 7,  
+                    spread: 90,  
+                    startVelocity: 40,  
+                    origin: { y: 0.1 },  
                     colors: ["#FF4D6D", "#FFD700", "#00C9A7", "#FF7EB3", "#6A5ACD", "#FF4500"]
                 });
 
@@ -60,8 +68,19 @@
             })();
         }
 
-        // Start confetti when page loads
-        window.onload = startConfetti;
+        // Music control
+        let music = document.getElementById("bgMusic");
+        let muteButton = document.getElementById("muteButton");
+
+        muteButton.addEventListener("click", function () {
+            if (music.muted) {
+                music.muted = false;
+                muteButton.textContent = "🔊 Mute";
+            } else {
+                music.muted = true;
+                muteButton.textContent = "🔇 Unmute";
+            }
+        });
     </script>
 
 </body>
