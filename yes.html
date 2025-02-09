@@ -21,7 +21,7 @@
             flex-direction: column;
             text-align: center;
             font-family: 'Arial', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             z-index: 10;
             transition: transform 1s ease-in-out;
@@ -36,8 +36,7 @@
         .container {
             text-align: center;
             padding: 50px;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            opacity: 1; /* Ensure it's fully visible */
         }
 
         /* Love Animation */
@@ -59,7 +58,7 @@
     <source src="Bruno Mars - Marry You.ogg" type="audio/ogg">
 </audio>
 
-<!-- Main Content -->
+<!-- Main Content (Always Visible) -->
 <div id="content" class="container">
     <h1>My Love, My Tisha ❤️</h1>
     <p>
@@ -68,6 +67,19 @@
 
         The past year was the best year I had just because of you.<br>
         The brightest star or even the moon itself can't compare if it's you.<br><br>
+
+        People say it's God who sees you and believes in you,<br>
+        But all I know is that my God herself is in you.<br><br>
+
+        It wouldn't be right to just praise you all the way and not mention any of your mistakes.<br>
+        I really would have done so if I had found any, but I only saw your beautiful face,<br>
+        That prettiest smile, those enchanting eyes—oh no, I couldn't escape.<br><br>
+
+        Never ever had I thought I would love someone this much for who I am.<br>
+        Never ever had I thought I would be in total sync with someone for who I am.<br><br>
+
+        Well, it's not about who you were or who you will be in the future now.<br>
+        All that matters is what you have become, with the person alongside, by your side, to the person you vowed.<br><br>
 
         That person is you, my Tisha. That someone is none other than my one and only Tisha.<br><br>
 
@@ -80,16 +92,10 @@
 <script>
     document.getElementById("letter").addEventListener("click", function () {
         let letter = document.getElementById("letter");
-        let content = document.getElementById("content");
         let audio = document.getElementById("backgroundMusic");
 
         // Make Letter Drop
         letter.classList.add("hidden");
-
-        // Reveal Content
-        setTimeout(() => {
-            content.style.opacity = "1";
-        }, 1000);
 
         // Start Confetti
         confetti({
@@ -107,4 +113,3 @@
 
 </body>
 </html>
-
