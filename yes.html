@@ -49,13 +49,13 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
     <script>
         function startConfetti() {
-            var duration = 5 * 1000; // Confetti for 5 seconds
+            var duration = 6 * 1000; // Confetti for 5 seconds
             var end = Date.now() + duration;
 
             (function frame() {
                 confetti({
-                    particleCount: 5,
-                    spread: 60,
+                    particleCount: 10,
+                    spread: 80,
                     origin: { y: 0.2 },
                     colors: ["#ff4d6d", "#ff7eb3", "#ffc3a0", "#ffdd67", "#ff99cc", "#ffcc99"]
                 });
