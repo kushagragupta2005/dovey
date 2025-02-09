@@ -7,19 +7,26 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .love-image {
-            width: 300px;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
             display: block;
-            margin: 50px auto;
-            animation: shake 0.5s infinite;
-            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: shake 1s ease-in-out, drop 1.5s ease-in-out 1s forwards;
         }
 
         @keyframes shake {
-            0% { transform: translate(2px, 2px) rotate(0deg); }
-            25% { transform: translate(-2px, -2px) rotate(-2deg); }
-            50% { transform: translate(2px, -2px) rotate(2deg); }
-            75% { transform: translate(-2px, 2px) rotate(-2deg); }
-            100% { transform: translate(2px, 2px) rotate(0deg); }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-5px, 5px) rotate(-2deg); }
+            50% { transform: translate(5px, -5px) rotate(2deg); }
+            75% { transform: translate(-5px, 5px) rotate(-2deg); }
+        }
+
+        @keyframes drop {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
 
         .hidden-message {
@@ -60,19 +67,18 @@
 
             Happy Valentine's Day to my love, my dovey, my jaanu, my everything—for being not just a part of my life, but my whole life.
         </p>
+        <p style="text-align: center; font-size: 2rem; margin-top: 12px;">
+        ♥️♥️♥️
+        </p>
     </div>
 </div>
 
 <script>
-    document.getElementById("loveImage").addEventListener("click", function() {
-        this.style.animation = "none";
-        this.style.transition = "opacity 1s ease-out";
-        this.style.opacity = "0";
-        
-        setTimeout(() => {
+    document.getElementById("loveImage").addEventListener("animationend", function(event) {
+        if (event.animationName === "drop") {
             this.style.display = "none";
             document.getElementById("hiddenMessage").style.display = "block";
-        }, 1000);
+        }
     });
 </script>
 
