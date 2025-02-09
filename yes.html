@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Love ❤️</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
-<body>
+<body onload="startConfetti()">
     <div class="container">
         <h1>My Love, My Tisha ❤️</h1>
         <p>
@@ -38,23 +39,41 @@
         </p>
     </div>
 
-    <!-- SoundCloud Hidden Player -->
-    <iframe class="soundcloud-player" 
-        width="100%" 
-        height="166" 
-        scrolling="no" 
-        frameborder="no" 
-        allow="autoplay" 
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/898994158&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-    </iframe>
+    <!-- SoundCloud Embed (Visible) -->
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1154061383&color=%23ff5500&auto_play=true&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+        </iframe>
+    </div>
 
+    <!-- Optional: Hide SoundCloud Player -->
     <style>
-        .soundcloud-player {
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            position: absolute;
+        iframe {
+            width: 300px;
+            height: 100px;
+            border-radius: 10px;
         }
     </style>
+
+    <script>
+        function startConfetti() {
+            var duration = 5000; // Confetti lasts for 5 seconds
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 2,  // Small bursts
+                    startVelocity: 10,  // Slower falling speed
+                    spread: 80,
+                    origin: { x: Math.random(), y: 0 },  // Start from random positions at the top
+                    colors: ["#FF4D6D", "#FFD700", "#00C9A7", "#FF7EB3", "#6A5ACD", "#FF4500"]
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+    </script>
 </body>
 </html>
