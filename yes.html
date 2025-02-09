@@ -39,11 +39,21 @@
         </p>
     </div>
 
-    <div class="music-container">
-    <iframe width="300" height="150" 
-    src="https://www.youtube.com/embed/G5kH8JQs7LY?autoplay=1&loop=1&playlist=G5kH8JQs7LY" 
-    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe class="spotify-player" src="https://open.spotify.com/embed/track/1gH1h30wkQdd9zhY3j7a8T?utm_source=generator" 
+    frameborder="0" 
+    allow="autoplay; clipboard-write; encrypted-media;" 
+    loading="lazy">
+    </iframe>
+
+    <style>
+        .spotify-player {
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            position: absolute;
+        }
+    </style>
+
 
 
     <script>
