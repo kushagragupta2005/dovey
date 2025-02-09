@@ -23,17 +23,7 @@
 
     <script>
         let audio = document.getElementById("backgroundMusic");
-        let savedTime = localStorage.getItem("musicTime");
-        if (savedTime) {
-            audio.currentTime = savedTime;
-        }
         audio.play();
-        };
-
-        // Stop music when leaving the page
-        window.onbeforeunload = function () {
-            audio.pause();
-            audio.currentTime = 0;
         };
 
         // Redirect to yes.html when clicking "Yes"
