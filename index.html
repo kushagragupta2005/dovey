@@ -19,6 +19,15 @@
     <button id="yesButton">Yes 💖</button>
     <button id="noButton">No 😢</button>
 </div>a
-<script src="script.js"></script>
+<script> 
+    src="script.js"
+    let audio = document.getElementById("backgroundMusic");
+    let savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+        audio.currentTime = savedTime;
+    }
+    audio.play();
+    };
+</script>
 </body>
 </html>
