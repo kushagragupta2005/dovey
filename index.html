@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Background Music -->
+    <!-- Background Music (Only for this page) -->
     <audio id="backgroundMusic" autoplay loop>
         <source src="Bazzi - Beautiful feat. Camila.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -21,44 +21,21 @@
         <button id="noButton">No 😭</button>
     </div>
 
-    <!-- Mute/Unmute Button -->
-    <button id="muteButton" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">🔊 Mute</button>
-
     <script>
-        // Resume music progress if user navigates between pages
         let audio = document.getElementById("backgroundMusic");
-        let muteButton = document.getElementById("muteButton");
 
-        window.onload = function () {
-            let savedTime = localStorage.getItem("musicTime");
-            if (savedTime) {
-                audio.currentTime = savedTime;
-            }
-            audio.play();
-        };
-
-        // Save music progress before leaving the page
+        // Stop music when leaving the page
         window.onbeforeunload = function () {
-            localStorage.setItem("musicTime", audio.currentTime);
+            audio.pause();
+            audio.currentTime = 0;
         };
-
-        // Mute/Unmute Button
-        muteButton.addEventListener("click", function () {
-            if (audio.muted) {
-                audio.muted = false;
-                muteButton.textContent = "🔊 Mute";
-            } else {
-                audio.muted = true;
-                muteButton.textContent = "🔇 Unmute";
-            }
-        });
 
         // Redirect to yes.html when clicking "Yes"
         document.getElementById("yesButton").addEventListener("click", function () {
             window.location.href = "yes.html";
         });
 
-        // Redirect to a fun "no" page (optional)
+        // Fun "No" response
         document.getElementById("noButton").addEventListener("click", function () {
             alert("No? 😭 But why?! I still love you! 💔");
         });
