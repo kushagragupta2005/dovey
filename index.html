@@ -35,9 +35,18 @@
             window.location.href = "yes.html";
         });
 
-        // Fun "No" response
-        document.getElementById("noButton").addEventListener("click", function () {
-            alert("No? 😭 But why?! I still love you! 💔");
+        // Make "No" button move randomly
+        document.getElementById("noButton").addEventListener("mouseover", function () {
+            let button = this;
+            let maxWidth = window.innerWidth - button.offsetWidth;
+            let maxHeight = window.innerHeight - button.offsetHeight;
+
+            let newX = Math.random() * maxWidth;
+            let newY = Math.random() * maxHeight;
+
+            button.style.position = "absolute";
+            button.style.left = newX + "px";
+            button.style.top = newY + "px";
         });
     </script>
 
