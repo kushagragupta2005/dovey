@@ -41,14 +41,15 @@
 
     <script>
         function startConfetti() {
-            var duration = 5000; // 5 seconds
+            var duration = 5000; // Confetti lasts for 5 seconds
             var end = Date.now() + duration;
 
             (function frame() {
                 confetti({
-                    particleCount: 7,
-                    spread: 120,
-                    startVelocity: 30,
+                    particleCount: 2,  // Small bursts
+                    startVelocity: 10,  // Slower falling speed
+                    spread: 80,
+                    origin: { x: Math.random(), y: 0 },  // Start from random positions at the top
                     colors: ["#FF4D6D", "#FFD700", "#00C9A7", "#FF7EB3", "#6A5ACD", "#FF4500"]
                 });
 
