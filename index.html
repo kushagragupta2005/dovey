@@ -7,44 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Background Music (Only for this page) -->
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="Bazzi - Beautiful feat. Camila.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="container">
-        <h1>Hey, Beautiful ❤️</h1>
-        <p>I've been thinking... will you be my Valentine? 💘</p>
-        <button id="yesButton">Yes 💖</button>
-        <button id="noButton">No 😭</button>
-    </div>
-
-    <script>
-        let audio = document.getElementById("backgroundMusic");
-        audio.play();
-        };
-
-        // Redirect to yes.html when clicking "Yes"
-        document.getElementById("yesButton").addEventListener("click", function () {
-            window.location.href = "yes.html";
-        });
-
-        // Make "No" button move randomly
-        document.getElementById("noButton").addEventListener("mouseover", function () {
-            let button = this;
-            let maxWidth = window.innerWidth - button.offsetWidth;
-            let maxHeight = window.innerHeight - button.offsetHeight;
-
-            let newX = Math.random() * maxWidth;
-            let newY = Math.random() * maxHeight;
-
-            button.style.position = "absolute";
-            button.style.left = newX + "px";
-            button.style.top = newY + "px";
-        });
-    </script>
-
+<div class="container">
+    <h1>Hey, Beautiful ❤️</h1>
+    <p>I've been thinking... will you be my Valentine? 💘</p>
+    <button id="yesButton">Yes 💖</button>
+    <button id="noButton">No 😢</button>
+</div>a
+<script src="script.js"></script>
 </body>
 </html>
